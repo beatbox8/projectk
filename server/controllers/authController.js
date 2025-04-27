@@ -19,9 +19,9 @@ exports.signIn = async (req, res) => {
     }
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
     const cookieOptions={
-      httpOnly : false,
+      httpOnly : true,
       secure : true,
-      sameSite : "strict",
+      sameSite : "lax",
       maxAge : 7*24*60*60*1000
     };
     res.cookie('token',token,cookieOptions)
@@ -35,9 +35,9 @@ exports.signIn = async (req, res) => {
 exports.signOut = async (req, res) => {
   try {
     res.clearCookie('token', {
-      httpOnly : false,
+      httpOnly : true,
       secure : true,
-      sameSite : "strict",
+      sameSite : "lax",
       maxAge : 7*24*60*60*1000
     });
 
