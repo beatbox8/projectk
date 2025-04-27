@@ -9,8 +9,8 @@ import { MdEditSquare } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import LoadingSpinner from './utils/LoadingCom';
 
-const API_BASE_URL = 'http://localhost:5000/api/transactions'; // Adjust if your backend runs on a different port
-const STUDENTS_API_URL = 'http://localhost:5000/api/students'; // Adjust if your backend runs on a different port
+const API_BASE_URL = 'https://beat-box-backend.onrender.com/api/transactions'; // Adjust if your backend runs on a different port
+const STUDENTS_API_URL = 'https://beat-box-backend.onrender.com/api/students'; // Adjust if your backend runs on a different port
 
 function Transactions() {
     const navigate = useNavigate();
@@ -76,23 +76,6 @@ function Transactions() {
         }
     };
 
-    const handleLogout = async() => {
-        try {
-          const response = await axios.post(
-            'http://localhost:5000/api/auth/signout',
-            {}, 
-          {
-            withCredentials: true 
-          }
-          );
-      
-          const data = response.data;
-          navigate('/signin');
-          console.log(data);
-        } catch (error) {
-          console.error('Sign Out failed:', error);
-        }
-      };
 
     const handleStudentClick = (studentId) => {
         setSelectedStudentId(studentId);
