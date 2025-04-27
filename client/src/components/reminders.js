@@ -6,8 +6,8 @@ import toast from 'react-hot-toast';
 import LoadingSpinner from './utils/LoadingCom';
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import Navbar from './utils/Navbar';
-const API_BASE_URL = 'http://localhost:5000/api/transactions';
-const WHATSAPP_API_URL = 'http://localhost:5000/api/whatsapp/send-whatsapp'; // Backend endpoint for sending WhatsApp
+const API_BASE_URL = 'https://beat-box-backend.onrender.com/api/transactions';
+const WHATSAPP_API_URL = 'https://beat-box-backend.onrender.com/api/whatsapp/send-whatsapp'; // Backend endpoint for sending WhatsApp
 
 function Reminders() {
     const navigate = useNavigate();
@@ -45,23 +45,6 @@ function Reminders() {
         }
     };
     
-    const handleLogout = async() => {
-        try {
-          const response = await axios.post(
-            'http://localhost:5000/api/auth/signout',
-            {}, 
-          {
-            withCredentials: true 
-          }
-          );
-      
-          const data = response.data;
-          navigate('/signin');
-          console.log(data);
-        } catch (error) {
-          console.error('Sign Out failed:', error);
-        }
-      };
 
       const sendWhatsAppMessage = async (phoneNumber, message) => {
         if (!phoneNumber) {
