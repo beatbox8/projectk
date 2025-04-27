@@ -10,7 +10,7 @@ import { IoIosSave } from "react-icons/io";
 import { MdCancel } from "react-icons/md";
 import Navbar from './utils/Navbar';
 
-const API_BASE_URL = 'http://localhost:5000/api/students'; // Adjust if your backend runs on a different port
+const API_BASE_URL = 'https://beat-box-backend.onrender.com/api/students'; // Adjust if your backend runs on a different port
 
 function Data() {
     
@@ -71,7 +71,7 @@ function Data() {
     const handleLogout = async() => {
         try {
           const response = await axios.post(
-            'http://localhost:5000/api/auth/signout',
+            'https://beat-box-backend.onrender.com/api/auth/signout',
             {}, 
           {
             withCredentials: true 
