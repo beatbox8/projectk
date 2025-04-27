@@ -21,7 +21,7 @@ exports.signIn = async (req, res) => {
     const cookieOptions={
       httpOnly : true,
       secure : true,
-      sameSite : "lax",
+      sameSite : "none",
       maxAge : 7*24*60*60*1000
     };
     res.cookie('token',token,cookieOptions)
@@ -37,7 +37,7 @@ exports.signOut = async (req, res) => {
     res.clearCookie('token', {
       httpOnly : true,
       secure : true,
-      sameSite : "lax",
+      sameSite : "none",
       maxAge : 7*24*60*60*1000
     });
 
