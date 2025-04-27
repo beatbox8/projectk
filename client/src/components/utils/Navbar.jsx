@@ -12,7 +12,7 @@ function Navbar() {
     const handleLogout = async() => {
         try {
           const response = await axios.post(
-            'http://localhost:5000/api/auth/signout',
+            'https://beat-box-backend.onrender.com/api/auth/signout',
             {}, 
           {
             withCredentials: true 
