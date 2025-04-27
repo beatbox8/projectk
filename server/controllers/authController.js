@@ -17,11 +17,10 @@ exports.signIn = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-    console.log("JWT : ",process.env.JWT_SECRET);
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
     const cookieOptions={
       httpOnly : true,
-      secure : false,
+      secure : true,
       sameSite : "strict",
       maxAge : 7*24*60*60*1000
     };
