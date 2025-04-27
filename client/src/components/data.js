@@ -68,24 +68,6 @@ function Data() {
 
     };
 
-    const handleLogout = async() => {
-        try {
-          const response = await axios.post(
-            'https://beat-box-backend.onrender.com/api/auth/signout',
-            {}, 
-          {
-            withCredentials: true 
-          }
-          );
-      
-          const data = response.data;
-          navigate('/signin');
-          console.log(data);
-        } catch (error) {
-          console.error('Sign Out failed:', error);
-        }
-      };
-
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
         setNewStudent({
