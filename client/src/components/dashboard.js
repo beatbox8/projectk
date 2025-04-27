@@ -10,7 +10,7 @@ function Dashboard() {
 
   const handleDashboard = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/check", {
+      const response = await axios.get("https://beat-box-backend.onrender.com/api/check", {
         withCredentials: true,
       });
       console.log(response);
