@@ -2,7 +2,7 @@ const express = require('express');
 const { protectRoute } = require('../middleware/authUser.middleware');
 const router = express.Router();
 
-router.get('/check',(req, res) => {
+router.get('/check',protectRoute,(req, res) => {
     try {
         console.log('Admin user authenticated.');
         res.send({ success:true ,message: "User is authorized" });
