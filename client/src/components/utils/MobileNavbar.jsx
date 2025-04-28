@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IoMenu } from "react-icons/io5";
 import { MdCancelPresentation } from "react-icons/md";
 
@@ -11,7 +12,7 @@ function MobileNavbar({ handleLogout }) {
 
         {/* Top Bar */}
         <div className="d-flex w-100 justify-content-between align-items-center">
-          <a className="navbar-brand mb-0" href="/">BeatBox Studio</a>
+          <Link className="navbar-brand mb-0" to="/">BeatBox Studio</Link>
           <button 
             className="btn text-light fs-4 p-1 border-0"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -25,16 +26,16 @@ function MobileNavbar({ handleLogout }) {
         {menuOpen && (
           <ul className="navbar-nav mt-3 w-100">
             <li className="nav-item">
-              <a className="nav-link active" href="/dashboard">Dashboard</a>
+              <Link className="nav-link active" to="/dashboard">Dashboard</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/data">Data</a>
+              <Link className="nav-link" to="/data">Data</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/transactions">Transactions</a>
+              <Link className="nav-link" to="/transactions">Transactions</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/reminders">Reminders</a>
+              <Link className="nav-link" to="/reminders">Reminders</Link>
             </li>
             <li className="nav-item">
               <button className="nav-link btn btn-link text-light px-0" onClick={handleLogout}>Logout</button>
