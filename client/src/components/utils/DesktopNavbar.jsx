@@ -1,19 +1,28 @@
+import { Link } from "react-router-dom";
 const DesktopNavbar = ({ handleLogout }) => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="/">BeatBox Studio</a>
-        <div className="collapse navbar-collapse show">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item"><a className="nav-link active" href="/dashboard">Dashboard</a></li>
-            <li className="nav-item"><a className="nav-link" href="/data">Data</a></li>
-            <li className="nav-item"><a className="nav-link" href="/transactions">Transactions</a></li>
-            <li className="nav-item"><a className="nav-link" href="/reminders">Reminders</a></li>
-            <li className="nav-item ">
-              <button className="nav-link btn btn-link text-light" onClick={handleLogout}>Logout</button>
-            </li>
-          </ul>
-        </div>
+  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div className="container-fluid">
+      <Link className="navbar-brand" to="/">BeatBox Studio</Link>
+      <div className="collapse navbar-collapse show">
+        <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
+            <Link className="nav-link active" to="/dashboard">Dashboard</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/data">Data</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/transactions">Transactions</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/reminders">Reminders</Link>
+          </li>
+          <li className="nav-item">
+            <button className="nav-link btn btn-link text-light" onClick={handleLogout}>Logout</button>
+          </li>
+        </ul>
       </div>
-    </nav>
-  );
-export default DesktopNavbar;  
+    </div>
+  </nav>
+);
+export default DesktopNavbar;
