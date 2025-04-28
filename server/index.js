@@ -23,10 +23,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/api/auth', authRoutes);
-app.use('/api/students', protectRoute,studentRoutes);
+app.use('/api/students',studentRoutes);
 app.use('/api/transactions',protectRoute, transactionRoutes);
 app.use('/api/whatsapp', protectRoute,whatsappRoutes);
-app.use('/api',protectRoute,isAuthorized);
+app.use('/api',isAuthorized);
 
 scheduleMonthlyTransactions();
 app.listen(PORT, () => {
