@@ -3,6 +3,14 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 // Connect to MongoDB (ideally, do this in a separate config file)
+ const cookieOptions={
+      httpOnly : true,
+      secure : true,
+      sameSite : "strict",
+      maxAge : 7*24*60*60*1000
+    };
+
+
 
 exports.signIn = async (req, res) => {
   try {
@@ -18,12 +26,7 @@ exports.signIn = async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-    const cookieOptions={
-      httpOnly : true,
-      secure : true,
-      sameSite : "none",
-      maxAge : 7*24*60*60*1000
-    };
+   
     res.cookie('token',token,cookieOptions)
     res.json({user: { email: user.email } });
   } catch (error) {
@@ -34,12 +37,7 @@ exports.signIn = async (req, res) => {
 
 exports.signOut = async (req, res) => {
   try {
-    res.clearCookie('token', {
-      httpOnly : true,
-      secure : true,
-      sameSite : "none",
-      maxAge : 7*24*60*60*1000
-    });
+    res.clearCookie('token', cookieOptions);
 
     res.json({ message: 'Logout successful' });
   } catch (error) {
